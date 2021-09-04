@@ -1,0 +1,38 @@
+!pip3 install textract
+import textract
+
+!pip3 install -U spacy
+import spacy
+from spacy import displacy
+from spacy.matcher import Matcher
+import sys
+nlp = spacy.load('en_core_web_md')
+
+
+# use textract to read the pdf
+text = textract.process("/Users/ioktwieaetiq/Downloads/1436.Child Development (Macmillan Psychology Series) by Neil J. Salkind2.pdf")
+
+
+# but it stores it as bytes, so decode the bytes format into string for nlp processing
+realbooktxt = text.decode("utf-8")
+
+
+f'{sys.getsizeof(text) = } and {sys.getsizeof(realbooktxt) = }'
+
+displacy.render(doc, style="ent")
+
+allnonstopwords = [nestedthing for list1 in get_non_stop_words(realbooktxt) for nestedthing in list1]
+setofallnonstopwords = set(allnonstopwords)
+
+f"{len(allnonstopwords) = } vs {len(setofallnonstopwords) = }"
+non_stop_words = list(get_non_stop_words(realbooktxt))
+
+morthn4 = [i for i in set(allnonstopwords) if len(i) > 4]
+
+# feed hungry nlp to process all the text!
+doc = nlp(realbooktxt)
+
+x = [i for i in newbooktext.split(' ')]
+
+y = set(x)
+y
