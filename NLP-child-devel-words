@@ -1,7 +1,7 @@
-!pip3 install textract
+# !pip3 install textract
 import textract
 
-!pip3 install -U spacy
+# !pip3 install -U spacy
 import spacy
 from spacy import displacy
 from spacy.matcher import Matcher
